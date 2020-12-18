@@ -1,0 +1,2673 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SDK.NET</name>
+    </assembly>
+    <members>
+        <member name="T:NiceLabel.SDK.AuthenticationSettings">
+            <summary>
+            Authentication settings.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.AuthenticationSettings.AccessToken">
+            <summary>
+            Gets or sets the access token used for accessing Label Cloud.
+            If not specified then user's token is used (user must be signed in and SDK included with NiceLabel installation must be used).
+            </summary>
+        </member>
+        <member name="T:NiceLabel.SDK.ControlCenterProperties">
+            <summary>
+            All Control Center related properties.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.ControlCenterProperties.ControlCenterUrl">
+            <summary>
+            Gets or sets the ControlCenter Url. Needed to access the document storage information.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.ControlCenterProperties.EngineCacheLocation">
+            <summary>
+            Gets or sets the engine cache location. Database file needed for control center logging location.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.ControlCenterProperties.IsPrintLoggingEnabled">
+            <summary>
+            Gets or sets a value indicating whether print logging is enabled.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.ControlCenterProperties.IsPrintLoggingCompleted">
+            <summary>
+            Gets a value indicating whether logging to control center has been completed (All print events ware sent to the server.).
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.ControlCenterProperties.Login(System.String,System.String)">
+            <summary>
+            Logins on the Control Center with specified username and password combination if application authentication is enabled.
+            </summary>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.Document">
+            <summary>
+            Implementation of the IDocument interface.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.CreatedTimestamp">
+            <summary>
+            Gets or sets the created time stamp of the document.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.ModifiedTimestamp">
+            <summary>
+            Gets or sets the modified time stamp of the document.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.Workflow">
+            <summary>
+            Gets or sets the workflow of the document.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.WorkflowStep">
+            <summary>
+            Gets or sets the workflow step of the document.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.Revisions">
+            <summary>
+            Gets a list of available document revisions.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.IsPublished">
+            <summary>
+            Gets or sets a value indicating whether the document is in published state.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.FileName">
+            <summary>
+            Gets or sets the file name of the document.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.FilePath">
+            <summary>
+            Gets or sets the full path with file name of the document.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Document.IsFolder">
+            <summary>
+            Gets or sets a value indicating whether this instance is folder.
+            </summary>
+        </member>
+        <member name="T:NiceLabel.SDK.DocumentRevision">
+            <summary>
+            Implementation of the IDocumentRevision interface.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.RevisionNumber">
+            <summary>
+            Gets or sets the revision number.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.ModifiedTimestamp">
+            <summary>
+            Gets or sets the modified time stamp of the document revision.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.Workflow">
+            <summary>
+            Gets or sets the workflow of the document revision.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.WorkflowStep">
+            <summary>
+            Gets or sets the workflow step of the document revision.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.IsPublished">
+            <summary>
+            Gets or sets a value indicating whether the document revision is in published state.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.FileName">
+            <summary>
+            Gets or sets the file name of the document revision.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.FilePath">
+            <summary>
+            Gets or sets the full path with file name of the document revision.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentRevision.Revision">
+            <summary>
+            Gets or sets the revision string.
+            </summary>
+        </member>
+        <member name="T:NiceLabel.SDK.DocumentStorage">
+            <summary>
+            Implementation of the IDocumentStorage interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.DocumentStorage"/> class.
+            </summary>
+            <param name="controlCenterUrl">The control center URL.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.DocumentStorage.ControlCenterUrl">
+            <summary>
+            Gets or sets the control center URL. Note - this is public property to be used internally by SDK, but not exposed in interface. 
+            It is expected for the ControlCenterUrl to be set through PrintEngine.ControlCenterUrl property.
+            </summary>
+            <value>
+            The control center URL.
+            </value>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.GetDocuments(System.String,System.Boolean)">
+            <summary>
+            Retrieves the documents from storage server.
+            </summary>
+            <param name="directory">The directory.</param>
+            <param name="includeDirectories">If set to <c>true</c> directories will also be returned.</param>
+            <returns>
+            List of documents.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.GetDocument(System.String)">
+            <summary>
+            Retrieves the document from storage server.
+            </summary>
+            <param name="fileName">The file to retrieve.</param>
+            <returns>
+            File from the document storage.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.SupportsRevisioning">
+            <summary>
+            Retrieves revisioning configuration of document storage server.
+            </summary>
+            <returns>
+            True if document storage supports revisioning, false otherwise.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.CheckOutDocument(System.String)">
+            <summary>
+            Checks out document from storage server.
+            </summary>
+            <param name="fileName">The file to check out.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.CheckInDocument(System.String,System.String)">
+            <summary>
+            Checks in document to storage server.
+            </summary>
+            <param name="fileName">The file to check in.</param>
+            <param name="comment">The check in comment.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.DocumentStorage.DiscardDocumentCheckOut(System.String)">
+            <summary>
+            Discards the check out from storage server.
+            </summary>
+            <param name="fileName">The file for which to discard check out.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.DetailedPrintEngineException">
+            <summary>
+            Exception class used by the SDK. Derived from the SDK base exception class SDKException, and it initialized detailed message and debug messages 
+            from core exception information. If Diagnostics service is initialized, it will also trace the exceptions in log.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.DetailedPrintEngineException.#ctor(NiceLabel.SDK.SDKErrorCode,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.DetailedPrintEngineException" /> class.
+            </summary>
+            <param name="errorCode">The error code.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception that caused the problem.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.DetailedPrintEngineException.#ctor(NiceLabel.SDK.SDKErrorCode,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.DetailedPrintEngineException"/> class.
+            </summary>
+            <param name="errorCode">The error code.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.DetailedSDKException">
+            <summary>
+            Exception class used by the SDK. Derived from the SDK base exception class SDKException, and it initialized detailed message and debug messages 
+            from core exception information. If Diagnostics service is initialized, it will also trace the exceptions in log.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.DetailedSDKException.#ctor(NiceLabel.SDK.SDKErrorCode,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.DetailedSDKException" /> class.
+            </summary>
+            <param name="errorCode">The error code.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception that caused the problem.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.DetailedSDKException.#ctor(NiceLabel.SDK.SDKErrorCode,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.DetailedSDKException"/> class.
+            </summary>
+            <param name="errorCode">The error code.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.SDKExceptionHelper">
+            <summary>
+            Static class for formatting exception details (error message, detailed message).
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.SDKExceptionHelper.InitializeMessages(NiceLabel.SDK.SDKException,System.Exception)">
+            <summary>
+            Initializes message properties of target exception based on the inner exception passed as parameters.
+            </summary>
+            <param name="targetException">The target exception which message properties will be set.</param>
+            <param name="exception">The inner exception which is used to retrieve the detailed information.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.SDKExceptionHelper.GetDetailedErrorCode(System.Exception)">
+            <summary>
+            Gets the detailed error code from the exception.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns>ErrorCode string in case the exception is a CoreException. Otherwise formatted message that includes all messages from the InnerExceptions.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.SDKExceptionHelper.GetDetailedMessage(System.Exception)">
+            <summary>
+            Gets the detailed error message from the exception.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns>Formatted message of all detailed messages from InnerExceptions.</returns>
+        </member>
+        <member name="P:NiceLabel.SDK.CodeSoftLabel.ConversionIssues">
+            <summary>
+            Gets the list of issues occurred during the conversion.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.CodeSoftLabel.CodeSoftApplication">
+            <summary>
+            Gets the CodeSoft application object.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.ReleaseCodeSoftApplication">
+            <summary>
+            Disposes the CodeSoft application.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.GetConnectionString(System.Collections.Generic.IList{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.String[])">
+            <summary>
+            Gets the connection string from CodeSoft connection string.
+            </summary>
+            <param name="items">The connection string value pairs.</param>
+            <param name="excludeTheseKeys">The keys to exclude from CodeSoft connection string.</param>
+            <returns>The connection string compatible with NiceLabel.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.GetConnectionStringKeyValuePairs(System.String)">
+            <summary>
+            Gets the connection string key value pairs.
+            </summary>
+            <param name="codeSoftConnectionString">The code soft connection string.</param>
+            <returns>The collection of key value pairs.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadDatabase(EuroPlus.NiceLabel.Interfaces.ISolution,LabelManager2.Document)">
+            <summary>
+            Loads the database from CodeSoft document.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="codeSoftFormat">The code soft document.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.GetTableName(System.String)">
+            <summary>
+            Gets the name of the table.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <returns>The name of the table.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.AddKeyValuePair(System.String,System.Collections.Generic.IList{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Adds the key value pair.
+            </summary>
+            <param name="item">The item that will be added.</param>
+            <param name="items">The items to add to.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadLabelAndPaperSize(EuroPlus.NiceLabel.Interfaces.IFormat,EuroPlus.NiceLabel.Interfaces.IFormatDocumentDesign,LabelManager2.Document)">
+            <summary>
+            Loads the size of the label and paper.
+            </summary>
+            <param name="formatDocument">The format document.</param>
+            <param name="mainFormatDocumentDesign">The main format document design.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.InitializeBackgroundItem(EuroPlus.NiceLabel.Interfaces.IFormat,System.String,LabelManager2.Document,System.Drawing.Bitmap)">
+            <summary>
+            Initializes the background item.
+            </summary>
+            <param name="formatDocument">The format document.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+            <param name="preview">The preview.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadVariables(EuroPlus.NiceLabel.Interfaces.ISolution,LabelManager2.Document,System.Collections.Generic.IList{EuroPlus.NiceLabel.Interfaces.IExecuteScriptFunction})">
+            <summary>
+            Loads the variables.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+            <param name="scriptsThatNeedToBeUpdated">Scripts created from CodeSoft label.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.ConvertScriptFromCodeSoftToNiceLabel(System.String)">
+            <summary>
+            Converts the script from CodeSoft to NiceLabel.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>The NiceLabel compatible script.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.GenerateCSVDatabase(LabelManager2.Free,EuroPlus.NiceLabel.Interfaces.ISolution)">
+            <summary>
+            Generates the CSV database.
+            </summary>
+            <param name="freeVariable">The variable that holds the connection to file in CodeSoft.</param>
+            <param name="solution">The solution.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.AddDBFieldToSolution(EuroPlus.NiceLabel.Interfaces.ISolution,LabelManager2.Variable,LabelManager2.Document)">
+            <summary>
+            Adds the database field to the solution.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="variable">The variable.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadDesign(EuroPlus.NiceLabel.Interfaces.ISolution,System.String,EuroPlus.NiceLabel.Interfaces.IFormatDocumentDesign,LabelManager2.Document,System.Drawing.Bitmap)">
+            <summary>
+            Loads the design from CodeSoft document.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="design">The design.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+            <param name="preview">The preview.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.GetLayer(EuroPlus.NiceLabel.Interfaces.IFormatDocumentDesign,System.Boolean)">
+            <summary>Gets the layer where the items should be added to.</summary>
+            <param name="design">The design.</param>
+            <param name="frontLayer">If set to <c>true</c> then the method returns the front layer.</param>
+            <returns>The layer where the items should be added to.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadImage(EuroPlus.NiceLabel.Interfaces.ISolution,LabelManager2.DocObject)">
+            <summary>
+            Loads the image from CodeSoft object.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="codeSoftObject">The CodeSoft document.</param>
+            <returns>The graphic document item compatible with NiceLabel.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.GetAnchoringPoint(LabelManager2.DocObject)">
+            <summary>
+            Gets the anchoring point.
+            </summary>
+            <param name="codeSoftObject">The CodeSoft element.</param>
+            <returns>The correct anchoring point.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadRectangle(LabelManager2.DocObject)">
+            <summary>
+            Loads the rectangle object.
+            </summary>
+            <param name="codeSoftObject">The CodeSoft document.</param>
+            <returns>The rectangle object.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadText(EuroPlus.NiceLabel.Interfaces.ISolution,LabelManager2.DocObject,LabelManager2.Document)">
+            <summary>
+            Loads the text from the CodeSoft document.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="codeSoftObject">The CodeSoft object.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+            <returns>The text document item compatible with NiceLabel.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.ConvertCodeSoftColorToNiceColor(System.Int32)">
+            <summary>
+            Converts the color from the CodeSoft color to NiceLabel color.
+            </summary>
+            <param name="codeSoftColor">Color from CodeSoft.</param>
+            <returns>The NiceLabel compatible color.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadLine(LabelManager2.Document,LabelManager2.DocObject)">
+            <summary>
+            Loads the line from the CodeSoft object.
+            </summary>
+            <param name="codeSoftFormat">The CodeSoft format.</param>
+            <param name="codeSoftObject">The CodeSoft document.</param>
+            <returns>The line object compatible with NiceLabel.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadObliqueLine(LabelManager2.Document,LabelManager2.DocObject)">
+            <summary>
+            Loads the oblique line from CodeSoft.
+            </summary>
+            <param name="codeSoftFormat">The CodeSoft format.</param>
+            <param name="codeSoftObject">The CodeSoft document.</param>
+            <returns>The oblique line.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadEllipse(LabelManager2.Document,LabelManager2.DocObject)">
+            <summary>
+            Loads the ellipse.
+            </summary>
+            <param name="codeSoftFormat">The CodeSoft format.</param>
+            <param name="codeSoftObject">The CodeSoft document.</param>
+            <returns>The ellipse object is returned.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.LoadBarcode(EuroPlus.NiceLabel.Interfaces.ISolution,LabelManager2.Document,LabelManager2.DocObject)">
+            <summary>
+            Loads the barcode from CodeSoft.
+            </summary>
+            <param name="solution">The solution.</param>
+            <param name="codeSoftFormat">The CodeSoft document.</param>
+            <param name="codeSoftObject">The CodeSoft object.</param>
+            <returns>The barcode document item.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.CropImage(System.Drawing.Image,System.Drawing.Rectangle)">
+            <summary>
+            Crops the image.
+            </summary>
+            <param name="image">The image to be cropped.</param>
+            <param name="cropArea">The crop area.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.CodeSoftLabel.ConvertMillimetersToPixels(System.Single,System.Single)">
+            <summary>
+            Converts the millimeters to pixels.
+            </summary>
+            <param name="value">The size in millimeters.</param>
+            <param name="dpi">The value of dpi.</param>
+            <returns>The size in pixels.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.BarTenderLabel.GetLayer(EuroPlus.NiceLabel.Interfaces.IFormatDocumentDesign,System.Boolean)">
+            <summary>Gets the layer where the items should be added to.</summary>
+            <param name="design">The design.</param>
+            <param name="frontLayer">If set to <c>true</c> then the method returns the front layer.</param>
+            <returns>The layer where the items should be added to.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.Licensing.Certificate">
+            <summary>
+            Implements checking of license certificate file.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Licensing.Certificate.Check">
+            <summary>
+            Checks for the existence and validity of license certificate file, single user license or ControlCenter licensing.
+            </summary>
+            <exception cref="T:NiceLabel.SDK.SDKException">
+            No valid license found.
+            or
+            License expired.
+            or
+            No valid ethernet adapters found. Single user license can not be verified due to non-existing internet connection. (for single user licensing).
+            or
+            Single user license can not be verified. (for single user licensing).
+            </exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Licensing.Certificate.IsRunningEpm">
+            <summary>
+            Determines whether SDK is running from Control Center.
+            </summary>
+            <remarks>
+            Should only be called in print engine initialize and cached.
+            </remarks>
+            <returns><c>True</c> if SDK is part of Control Center; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.Licensing.RC4">
+            <summary>
+            Class for encrypting/decrypting using RC4 algorithm.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Licensing.RC4.Encrypt(System.String,System.String,System.Boolean)">
+            <summary>
+            Encrypts the specified data using password provided.
+            </summary>
+            <param name="password">The password.</param>
+            <param name="data">The data.</param>
+            <param name="isPasswordHex">Key passed is in hexadecimal or not.</param>
+            <returns>Encrypted data.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Licensing.RC4.Decrypt(System.String,System.String,System.Boolean)">
+            <summary>
+            Decrypts the specified data.
+            </summary>
+            <param name="password">Key to decrypt with (can be binary of hex).</param>
+            <param name="data">Content to be decrypted.</param>
+            <param name="isPasswordHex">Key passed is in hexadecimal or not.</param>
+            <returns>Decrypted data.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Licensing.RC4.Bin2Hex(System.String)">
+            <summary>
+            Converts binary data to Hexadecimal encoded data.
+            </summary>
+            <param name="binaryData">The binary data.</param>
+            <returns>Hexadecimal encoded data.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.AbstractFontText">
+            <summary>
+            Implements the ILabelObject interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.AbstractFontText.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.AbstractFontText" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractFontText.FontName">
+            <summary>
+            Gets or sets the name of the font.
+            </summary>
+            <value>
+            The name of the font.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractFontText.FontHeight">
+            <summary>
+            Gets or sets the size of the font in 1/10 of Point.
+            </summary>
+            <value>
+            The size of the font in 1/10 Points.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractFontText.FontWidth">
+            <summary>
+            Gets or sets the font width in 1/10 of Point.
+            </summary>
+            <value>
+            The font width in 1/10 Points. If 0, the default font width will be used.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractFontText.LineSpacing">
+            <summary>
+            Gets or sets the line spacing in 1/10 of Point.
+            </summary>
+            <value>
+            The line spacing in 1/10 Points.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractFontText.CharacterSpacing">
+            <summary>
+            Gets or sets the character spacing in 1/10 of Point.
+            </summary>
+            <value>
+            The character spacing in 1/10 Points.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.ExtendedGeometryObject">
+            <summary>
+            Implements the IExtendedGeometryObject interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.ExtendedGeometryObject.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.ExtendedGeometryObject" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.ExtendedGeometryObject.FillColor">
+            <summary>
+            Gets or sets the fill color of the object.
+            </summary>
+            <value>
+            The fill color.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.Text">
+            <summary>
+            Implements the IText interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Text.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Text" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.TextBox">
+            <summary>
+            Implements the ITextBox interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.TextBox.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.TextBox" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.RichTextBox">
+            <summary>
+            Implements the ILabelObject interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.RichTextBox.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.RichTextBox" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.Graphics">
+            <summary>
+            Implements the IGraphics interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Graphics.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Graphics" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Graphics.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>
+            The content.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Graphics.ContentType">
+            <summary>
+            Gets the type of the content.
+            </summary>
+            <value>
+            The type of the content.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Graphics.Variable">
+            <summary>
+            Gets the variable that the label object is connected to.
+            </summary>
+            <value>
+            The variable.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.Barcode">
+            <summary>
+            Implements the IBarcode interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Barcode.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Barcode" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Barcode.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>
+            The content.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Barcode.ContentType">
+            <summary>
+            Gets the type of the content.
+            </summary>
+            <value>
+            The type of the content.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Barcode.Variable">
+            <summary>
+            Gets the variable that the label object is connected to.
+            </summary>
+            <value>
+            The variable.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Barcode.BarcodeId">
+            <summary>
+            Gets the barcode type identifier.
+            </summary>
+            <value>
+            The barcode type identifier.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.AbstractText">
+            <summary>
+            Implements the ILabelObject interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.AbstractText.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.AbstractText" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractText.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>
+            The content.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractText.ContentType">
+            <summary>
+            Gets the type of the content.
+            </summary>
+            <value>
+            The type of the content.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractText.Variable">
+            <summary>
+            Gets the variable that the label object is connected to.
+            </summary>
+            <value>
+            The variable.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.Line">
+            <summary>
+            Implements the ILine interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Line.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Line" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Line.StartPoint">
+            <summary>
+            Gets or sets the position of line starting  point.
+            </summary>
+            <value>
+            The position of the line starting point.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Line.EndPoint">
+            <summary>
+            Gets or sets the position of line ending point.
+            </summary>
+            <value>
+            The position of the line ending point.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.Inverse">
+            <summary>
+            Implements the IInverse interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Inverse.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Inverse" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.Ellipse">
+            <summary>
+            Implements the IEllipse interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Ellipse.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Ellipse" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.Rectangle">
+            <summary>
+            Implements the IRectangle interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Rectangle.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Rectangle" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.DataSet">
+            <summary>
+            Implements the IDataSet interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.DataSet.#ctor(EuroPlus.NiceLabel.Interfaces.ISolutionRuntime,EuroPlus.NiceLabel.Interfaces.IDatabaseDataSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.DataSet" /> class.
+            </summary>
+            <param name="solutionRuntime">The solution runtime.</param>
+            <param name="dataSet">The data set.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.Fields">
+            <summary>
+            Gets the list of the fields.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.IsFileDatabase">
+            <summary>
+            Gets a value indicating whether the data set is file database (txt, csv).
+            </summary>
+            <value>
+            <c>True</c> if the data set is file database; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.FileDatabaseFileName">
+            <summary>
+            Gets or sets the file name of the database file.
+            </summary>
+            <value>
+            The file name of the database file.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>
+            The connection string.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.TableName">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+            <value>
+            The name of the table.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.IsCustomSql">
+            <summary>
+            Gets or sets a value indicating whether this data set is using custom SQL.
+            </summary>
+            <value>
+            <c>True</c> if this instance is using custom SQL; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.DataSet.CustomSql">
+            <summary>
+            Gets or sets the custom SQL.
+            </summary>
+            <value>
+            The custom SQL.
+            </value>
+        </member>
+        <member name="M:NiceLabel.SDK.DataSet.GetFields">
+            <summary>
+            Gets the variables, in case of label files variables are defined on format level and in case of solution files on solution level.
+            </summary>
+            <returns>List of variables.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.AbstractGeometryObject">
+            <summary>
+            Implements the ILabelObject interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.AbstractGeometryObject.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.AbstractGeometryObject" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.AbstractGeometryObject.LineThickness">
+            <summary>
+            Gets or sets the line thickness.
+            </summary>
+            <value>
+            The line thickness.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.Solution">
+            <summary>
+            Implementation of the ISolution interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.#ctor(NiceLabel.SDK.PrintEngine,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Solution" /> class. When created, the solution with passed filename is automatically opened.
+            </summary>
+            <param name="printEngine">The print engine.</param>
+            <param name="fileName">Name of the solution file.</param>
+            <param name="relativeItemsPath">The relative items path.</param>
+            <param name="overrideFields">If set to <c>true</c> override dataset fields.</param>
+            <exception cref="T:NiceLabel.SDK.DetailedPrintEngineException">
+            An error occurred during loading the file.
+            or
+            No labels can be found in opened document.
+            </exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">Exception can be thrown if the file can not be opened or no labels can be found in the document.</exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">An error occurred during loading the file.
+            or
+            No labels can be found in opened document.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.#ctor(NiceLabel.SDK.PrintEngine,System.IO.Stream,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Solution" /> class. When created, the solution with passed filename is automatically opened.
+            </summary>
+            <param name="printEngine">The print engine.</param>
+            <param name="solutionStream">Stream of the solution file.</param>
+            <param name="solutionExtension">The file extension of solution.</param>
+            <param name="fileName">Name of the solution file.</param>
+            <param name="relativeItemsPath">The relative items path.</param>
+            <param name="overrideFields">If set to <c>true</c> override dataset fields.</param>
+            <param name="revision">The solution file revision.</param>
+            <exception cref="T:NiceLabel.SDK.DetailedPrintEngineException">
+            An error occurred during loading the file.
+            or
+            No labels can be found in opened document.
+            </exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">Exception can be thrown if the file can not be opened or no labels can be found in the document.</exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">An error occurred during loading the file.
+            or
+            No labels can be found in opened document.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.#ctor(NiceLabel.SDK.PrintEngine,EuroPlus.NiceLabel.Interfaces.ISolution,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Solution"/> class.
+            </summary>
+            <param name="printEngine">The print engine.</param>
+            <param name="solution">The solution.</param>
+            <param name="fileName">Name of the solution file.</param>
+            <param name="overrideFields">If set to <c>true</c> override dataset fields.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.#ctor(EuroPlus.NiceLabel.Interfaces.ISolution)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Solution" /> class.
+            </summary>
+            <param name="model">The model.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Solution.OverrideFields">
+            <summary>
+            Gets or sets a value indicating whether or not to override all dataset fields to be of type string.
+            </summary>
+            <value>
+            <c>True</c> if override; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Solution.FilePath">
+            <summary>
+            Gets the file path.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Solution.Directory">
+            <summary>
+            Gets the directory.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Solution.FileName">
+            <summary>
+            Gets the file name.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Solution.LabelNames">
+            <summary>
+            Gets the names of labels in this solution.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.OpenLabel(System.String)">
+            <summary>
+            Opens the label by given label name.
+            </summary>
+            <param name="labelName">Name of the label to open.</param>
+            <returns>
+            The opened label.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.Clone">
+            <summary>
+            Returns cloned instance of the current ISolution. Every Cloned instance must be released with call to Dispose.
+            </summary>
+            <returns>
+            Cloned ILabel instance.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.CreateXMLSolutionInformation">
+            <summary>
+            Stores information of the current solution to an XML document.
+            </summary>
+            <returns>
+            The xml document containing the solution information.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Solution.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.PreviewSdkFormatProcessData">
+            <summary>
+            Preview format process data implementation.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PreviewSdkFormatProcessData.#ctor(EuroPlus.NiceLabel.Interfaces.IFormat,EuroPlus.NiceLabel.Interfaces.IPrinter,EuroPlus.NiceLabel.Interfaces.ISolutionRuntime,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.PreviewSdkFormatProcessData"/> class.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="printer">The printer.</param>
+            <param name="solutionRuntime">The solution runtime.</param>
+            <param name="previewImagePath">The preview image path.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.PreviewSdkFormatProcessData.PreviewToFile">
+            <summary>
+            Gets or sets a value indicating whether graphics file will be used as an output.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PreviewSdkFormatProcessData.ProcessingOnlyWithoutOutput">
+            <summary>
+            Gets or sets a value indicating whether the preview just needs to be processed (in order to calculate object boundaries) and no output image generated.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PreviewSdkFormatProcessData.PreviewImagePath">
+            <summary>
+            Gets or sets the preview image path.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PreviewSdkFormatProcessData.ImageStream">
+            <summary>
+            Gets or sets the image stream.
+            </summary>
+            <value>
+            The image stream.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PreviewSdkFormatProcessData.FormatPreviewSide">
+            <summary>
+            Gets or sets the format preview side.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PreviewSdkFormatProcessData.FormatRuntime">
+            <summary>
+            Gets or sets the format runtime.
+            </summary>
+            <value>
+            The format runtime.
+            </value>
+        </member>
+        <member name="M:NiceLabel.SDK.PreviewSdkFormatProcessData.CreatePreview(EuroPlus.NiceLabel.Interfaces.IDocumentRuntime)">
+            <summary>
+            Creates the preview.
+            </summary>
+            <param name="documentRuntime">The format runtime.</param>
+            <exception cref="T:NiceLabel.SDK.SDKException">SDKException stating that preview cannot be generated.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.PreviewSdkFormatProcessData.GetDocumentForPreview">
+            <summary>
+            Gets the document for preview.
+            </summary>
+            <returns>Document for preview.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.PreviewSdkFormatProcessData.GetDocumentRuntimeForPreview">
+            <summary>
+            Gets the document runtime for preview.
+            </summary>
+            <returns>Document runtime for preview.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.Label">
+            <summary>
+            Implementation of the ILabel interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.#ctor(NiceLabel.SDK.PrintEngine,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Label" /> class. When created, the label with passed filename is automatically opened.
+            </summary>
+            <param name="printEngine">The print engine.</param>
+            <param name="fileName">Name of the label file.</param>
+            <param name="relativeItemsPath">The relative items path.</param>
+            <param name="overrideFields">If set to <c>true</c> override database fields.</param>
+            <exception cref="T:NiceLabel.SDK.DetailedPrintEngineException">
+            An error occurred during loading the file.
+            or
+            No labels can be found in opened document.
+            </exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">Exception can be thrown if the file can not be opened or no labels can be found in the document.</exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">An error occurred during loading the file.
+            or
+            No labels can be found in opened document.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.#ctor(NiceLabel.SDK.PrintEngine,System.IO.Stream,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Label" /> class. When created, the label with passed filename is automatically opened.
+            </summary>
+            <param name="printEngine">The print engine.</param>
+            <param name="labelStream">Stream of the label file.</param>
+            <param name="labelExtension">The file extension of label.</param>
+            <param name="fileName">Name of the label file.</param>
+            <param name="relativeItemsPath">The relative items path.</param>
+            <param name="overrideFields">If set to <c>true</c> override database fields.</param>
+            <param name="revision">The label file revision.</param>
+            <exception cref="T:NiceLabel.SDK.DetailedPrintEngineException">
+            An error occurred during loading the file.
+            or
+            No labels can be found in opened document.
+            </exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">Exception can be thrown if the file can not be opened or no labels can be found in the document.</exception>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">An error occurred during loading the file.
+            or
+            No labels can be found in opened document.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.#ctor(NiceLabel.SDK.PrintEngine,EuroPlus.NiceLabel.Interfaces.ISolution,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Label"/> class.
+            </summary>
+            <param name="printEngine">The print engine.</param>
+            <param name="solution">The solution.</param>
+            <param name="fileName">Name of the label file.</param>
+            <param name="overrideFields">If set to <c>true</c> override database fields.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.#ctor(EuroPlus.NiceLabel.Interfaces.ISolution,System.String,NiceLabel.SDK.PrintEngine,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Label" /> class.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="labelName">Name of the label.</param>
+            <param name="printEngine">The print engine.</param>
+            <param name="overrideFields">If set to <c>true</c> override database fields.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.LabelSettings">
+            <summary>
+            Gets the label settings.
+            </summary>
+            <value>
+            The label settings.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.PrintSettings">
+            <summary>
+            Gets the print settings.
+            </summary>
+            <value>
+            The print settings.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.ConversionIssues">
+            <summary>
+            Gets a list that contains description of potential issues that can arise during the label loading/conversion process.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Variables">
+            <summary>
+            Gets the list of the variables from the label which are not using any data sources for their initial value.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.LabelObjects">
+            <summary>
+            Gets the list of the label objects.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.DataSets">
+            <summary>
+            Gets the data sets.
+            </summary>
+            <value>
+            The data sets.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.FilePath">
+            <summary>
+            Gets the file path.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Directory">
+            <summary>
+            Gets the directory.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.FileName">
+            <summary>
+            Gets the file name.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Author">
+            <summary>
+            Gets the author.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Description">
+            <summary>
+            Gets the description.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Revision">
+            <summary>
+            Gets the file revision.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.SolutionRuntime">
+            <summary>
+            Gets the solution runtime.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Label.Format">
+            <summary>
+            Gets the format that is opened.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.SetVariableValuesXml(System.String,System.Boolean)">
+            <summary>
+            Sets the values to multiple variables using an XML data format.
+            </summary>
+            <param name="variablesList">XML document containing names and values for variables in each node.</param>
+            <param name="ignoreMissingVariables">When true, if variable does not exist in the label it is ignored. Otherwise an exception will be thrown.</param>
+            <exception cref="T:NiceLabel.SDK.SDKException">Variable values cannot be set.</exception>
+            <example>
+            Example:<br></br>
+            &lt;Variables&gt;<br></br>
+            &#160;&#160;&lt;variable name="Variable 1" &gt;Value 1&lt;/variable&gt;<br></br>
+            &#160;&#160;&lt;variable name="Variable 2" &gt;Value 2&lt;/variable&gt;<br></br>
+            &#160;&#160;&lt;variable name="Variable 3" &gt;Value 3&lt;/variable&gt;<br></br>
+            &lt;/Variables&gt;<br></br>
+            </example>
+            <remarks>
+            Characters that are XML specific cannot be used in the values and should be encoded.
+            </remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.SetVariableValues(System.String,System.Boolean)">
+            <summary>
+            Sets the values to multiple variables. 
+            </summary>
+            <param name="variablesList">String containing name-value pairs for variables in each line.</param>
+            <param name="ignoreMissingVariables">When true, if variable does not exist in the label it is ignored. Otherwise an exception will be thrown.</param>
+            <exception cref="T:NiceLabel.SDK.SDKException">Variable values cannot be set.</exception>
+            <example>
+            Example:<br></br>
+            Variable 1=Value 1<br></br>
+            Variable 2=Value 2<br></br>
+            Variable 3=Value 3<br></br>
+            </example>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.GetLabelPreview(NiceLabel.SDK.ILabelPreviewSettings)">
+            <summary>
+            Gets the preview of the label. Resulting preview depends on the provided setting provided by the input IPreviewFormat.
+            </summary>
+            <param name="settings">The label preview settings.</param>
+            <returns>
+            Preview object containing preview image path or the image byte array.
+            </returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">
+            No label design is loaded, label design must be loaded before this call is made.
+            or
+            Cannot generate preview.
+            </exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.Print(System.Int32)">
+            <summary>
+            Print the requested number of labels.
+            </summary>
+            <param name="quantity">Number of labels to be printed.</param>
+            <returns>Print request.</returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.PrintAll">
+            <summary>
+            Prints labels for all available data. This call is used when the label retrieves the data from the database, and labels for all
+            retrieved records should be printed.
+            </summary>
+            <returns>
+            The returned print request can be used to check for status of the print request and to later follow its spooling status.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.PrintAsync(System.Int32)">
+            <summary>
+            Print the requested number of labels.
+            </summary>
+            <param name="quantity">Number of labels to be printed.</param>
+            <returns>Print request.</returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.PrintAllAsync">
+            <summary>
+            Asynchronously prints labels for all available data. This call is used when the label retrieves the data from the database, and labels for all
+            retrieved records should be printed.
+            </summary>
+            <returns>
+            The returned print request is used to monitor the print process progress and the spooling status of the request.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.StartSessionPrint">
+            <summary>
+            Start the session printing.
+            </summary>
+            <returns>The print request of started session print.</returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.SessionPrint(System.Int32,NiceLabel.SDK.ISessionPrintRequest)">
+            <summary>
+            Print the requested number of labels for the specified session print.
+            </summary>
+            <param name="quantity">The quantity of labels to be printed.</param>
+            <param name="sessionPrintRequest">The session print request.</param>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.EndSessionPrint(NiceLabel.SDK.ISessionPrintRequest)">
+            <summary>
+            End the session printing.
+            </summary>
+            <param name="sessionPrintRequest">The session print request.</param>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.PrintToGraphics(NiceLabel.SDK.IPrintToGraphicsSettings)">
+            <summary>
+            Prints the requested number of labels to graphics.
+            </summary>
+            <param name="settings">The print to graphics settings.</param>
+            <returns>
+            Print to graphics results.
+            </returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.CreateXMLLabelInformation">
+            <summary>
+            Stores information of the label current label to an XML document.
+            </summary>
+            <returns>
+            The xml document containing the information.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.Clone">
+            <summary>
+            Returns cloned instance of the current ILabel. Every Cloned instance must be released with call to Dispose.
+            </summary>
+            <returns>
+            Cloned ILabel instance.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.SaveAs(System.String,System.Boolean)">
+            <summary>
+            Saves label using a specified file name.<br></br>
+            File extension options are:<br></br>
+            *.nlbl - file is saved as label file.<br></br>
+            *.nsln - file is saved as solution file.<br></br>
+            </summary>
+            <param name="fileName">File name and path.</param>
+            <param name="overwrite">If set to <c>true</c>, the file is overwritten.</param>
+            <exception cref="T:NiceLabel.SDK.DetailedSDKException">
+            <see cref="F:NiceLabel.SDK.SDKErrorCode.FileAlreadyExist"/>, <see cref="F:NiceLabel.SDK.SDKErrorCode.SaveToFileError"/>.
+            </exception>
+            <remarks>
+            You can load *.lbl files and save them using *.nlbl or *.nsln formats.<br></br>
+            You can convert label format (*.nlbl) to solution format (*.nsln).<br></br>
+            </remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.StoreToPrinter(System.String,System.String)">
+            <summary>
+            Stores the label to the printer.
+            </summary>
+            <param name="labelName">Label name to be used on printer. If this parameter is not specified than the default label name is used.</param>
+            <param name="storeVariant">Store variant defines the printer memory location for label templates. If this parameter is not specified than the store variant defined in the label is used.</param>
+            <exception cref="T:NiceLabel.SDK.DetailedSDKException">Error occurred while storing label to printer.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.CreateLabelVariant(System.String,System.String[])">
+            <summary>
+            Creates a review-ready variant of this label.
+            </summary>
+            <param name="outputFileName">The name of the label variant file that is going to be ready for review.</param>
+            <param name="printTimeDataSourceNames">List of data sources for which the value will be provided at the actual print time. If a data source is listed in this field, its value is not locked and can be provided at print time.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.GetBoundingRectangle(EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Gets the label object bounding rectangle. Used internally in SDK, not exposed in the interface.
+            </summary>
+            <param name="documentItem">The document item.</param>
+            <returns>The bounding rectangle of the object.</returns>
+            <value>
+            The solution runtime.
+            </value>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.InvalidateLabelPreview">
+            <summary>
+            Invalidates label preview needs to be called by property setters whenever property changes bounding rectangle of any object.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.InternalPrint(System.Int32,System.Boolean)">
+            <summary>
+            Prints the label using fixed quantity or unlimited quantity.
+            </summary>
+            <param name="quantity">The quantity.</param>
+            <param name="unlimited">If set to <c>true</c> all labels are printed.</param>
+            <returns>Print request.</returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.InternalPrintAsync(System.Int32,System.Boolean)">
+            <summary>
+            Asynchronously prints the label using fixed quantity or unlimited quantity.
+            </summary>
+            <param name="quantity">The quantity.</param>
+            <param name="unlimited">If set to <c>true</c> all labels are printed.</param>
+            <returns>Print request.</returns>
+            <exception cref="T:NiceLabel.SDK.SDKException">Error occurred during printing.</exception>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.RefreshRevision">
+            <summary>
+            Gets the latest revision for the current label.
+            </summary>
+            <returns>The revision.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.Label.GetVariables">
+            <summary>
+            Gets the variables, in case of label files variables are defined on format level and in case of solution files on solution level.
+            </summary>
+            <returns>List of variables.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.LabelSettings">
+            <summary>
+            Implements class to represent Label settings.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelSettings.#ctor(EuroPlus.NiceLabel.Interfaces.IFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.LabelSettings"/> class.
+            </summary>
+            <param name="format">The format.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelSettings.Width">
+            <summary>
+            Gets the label width in 0.001mm units.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelSettings.Height">
+            <summary>
+            Gets the label height in 0.001mm units.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelSettings.OriginalPrinterName">
+            <summary>
+            Gets the name of the printer the label was designed for.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelSettings.OriginalPrinterDriver">
+            <summary>
+            Gets the name of the printer driver that the label was designed for.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelSettings.PageLayout">
+            <summary>
+            Gets the page layout of the label design.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelSettings.DimensionUnit">
+            <summary>
+            Gets the unit in which all dimensions are defined for the label. The units are: 1 - Inch, 2 - Millimeter, 3 - Centimeter, 4 - dot.
+            </summary>
+            <value>
+            The dimension unit.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.PageLayout">
+            <summary>
+            Implements the page layout properties.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PageLayout.#ctor(EuroPlus.NiceLabel.Interfaces.IFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.PageLayout"/> class.
+            </summary>
+            <param name="format">The format.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.MediaWidth">
+            <summary>
+            Gets the width of the media.
+            </summary>
+            <value>
+            The width of the media.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.MediaHeight">
+            <summary>
+            Gets the height of the media.
+            </summary>
+            <value>
+            The height of the media.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.Columns">
+            <summary>
+            Gets the number of labels across the page in horizontal direction.
+            </summary>
+            <value>
+            The number of labels.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.Rows">
+            <summary>
+            Gets the number of labels across the page in vertical direction.
+            </summary>
+            <value>
+            The number of labels.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.HorizontalGap">
+            <summary>
+            Gets the horizontal gap.
+            </summary>
+            <value>
+            The horizontal gap.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.VerticalGap">
+            <summary>
+            Gets the vertical gap.
+            </summary>
+            <value>
+            The vertical gap.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.HorizontalOffset">
+            <summary>
+            Gets the horizontal offset of the first label.
+            </summary>
+            <value>
+            The horizontal offset.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.VerticalOffset">
+            <summary>
+            Gets the vertical offset.
+            </summary>
+            <value>
+            The vertical offset.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.HorizontalRadius">
+            <summary>
+            Gets the horizontal radius of the label in 0.001mm units.
+            </summary>
+            <value>
+            The horizontal radius.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PageLayout.VerticalRadius">
+            <summary>
+            Gets the vertical radius of the label in 0.001mm units.
+            </summary>
+            <value>
+            The vertical radius.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.PrintServiceSettings">
+            <summary>
+            All print service related settings.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintServiceSettings.MaxConcurrentPrintProcesses">
+            <summary>
+            Gets or sets the maximum number of concurrent print processes.
+            </summary>
+            <remarks>
+            If the value is set to 0 then the number of concurrent print processes depends on the number of virtual processors. It will be set to the number of virtual processors divided by 2 (or 1 if computer has only 1 processor).
+            </remarks>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintServiceSettings.MaxConcurrentSessionPrintProcesses">
+            <summary>
+            Gets or sets the maximum number of concurrent session print processes.
+            </summary>
+            <remarks>
+            If the value is set to 0 then the number of concurrent session print processes depends on the number of virtual processors. It will be set to the number of virtual processors divided by 2 (or 1 if computer has only 1 processor).
+            </remarks>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintServiceSettings.PageBackgroundColor">
+            <summary>
+            Gets or sets the color of the page background.
+            </summary>
+            <value>
+            The color of the page background.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintServiceSettings.PaintPageBackground">
+            <summary>
+            Gets or sets a value indicating whether page background should be painted. If set to false label preview will use up the entire surface.
+            </summary>
+            <value>
+            <c>True</c> if page background should be painted, otherwise <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintServiceSettings.Enable32BitProxy">
+            <summary>Gets or sets a value indicating whether 32-bit proxy process will start and process VBScript and 32-bit database operations. 32-bit proxy process is started only when host application runs in 64-bit mode. Setting must be enabled before calling PrintEngine Initialize.</summary>
+            <value>
+            <c>True</c> if 32-bit proxy process should be enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:NiceLabel.SDK.SessionPrintRequest">
+            <summary>
+            Implementation of the print request interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.SessionPrintRequest.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.SessionPrintRequest" /> class.
+            </summary>
+            <param name="monitorSpoolJobStatus">If set to <c>True</c> spool job status will be monitored.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.SessionPrintRequest.SessionPrint(System.Int32,EuroPlus.NiceLabel.Interfaces.ISolutionRuntime)">
+            <summary>
+            Creates a session print request.
+            </summary>
+            <param name="quantity">The quantity for the session print.</param>
+            <param name="solutionRuntime">The solution runtime.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.SessionPrintRequest.EndSessionPrint">
+            <summary>
+            Ends the session print request.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.SessionPrintRequest.Initialize(EuroPlus.NiceLabel.Interfaces.IPrintProcessInitializer,EuroPlus.NiceLabel.Interfaces.ISessionPrintRequest)">
+            <summary>
+            Initializes the specified engine print request.
+            </summary>
+            <param name="printProcessInitializer">The print process initializer.</param>
+            <param name="enginePrintRequest">The engine print request.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.SessionPrintRequest.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.SessionPrintRequest.GetQuantity(System.Int32,EuroPlus.NiceLabel.Interfaces.ISolutionRuntime)">
+            <summary>
+            Gets the quantity.
+            </summary>
+            <param name="quantity">The quantity.</param>
+            <param name="solutionRuntime">The solution runtime.</param>
+            <returns>The print quantity runtime.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.PrintRequest">
+            <summary>
+            Implementation of the print request interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintRequest.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.PrintRequest"/> class.
+            </summary>
+            <param name="monitorSpoolJobStatus">If set to <c>True</c> spool job status will be monitored.</param>        
+        </member>
+        <member name="E:NiceLabel.SDK.PrintRequest.PrintJobStatusChanged">
+            <summary>
+            Event that is fired when print job status changes.
+            </summary>
+        </member>
+        <member name="E:NiceLabel.SDK.PrintRequest.SpoolJobStatusChanged">
+            <summary>
+            Event that is fired when spool job status changes.
+            </summary>
+        </member>
+        <member name="E:NiceLabel.SDK.PrintRequest.RequestedQuantityChanged">
+            <summary>
+            Event that is fired when the quantity is changed.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.PrintJobStatus">
+            <summary>
+            Gets or sets the print job status.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.SpoolJobStatus">
+            <summary>
+            Gets or sets the spool job status.
+            </summary>
+            <remarks>
+            This event is triggered only when MonitorSpoolJobStatus is set to true in PrintSettings.
+            </remarks>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.PrinterName">
+            <summary>
+            Gets or sets the name of the printer.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.LabelName">
+            <summary>
+            Gets or sets the name of the label.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.JobName">
+            <summary>
+            Gets or sets the name of the print job in spooler.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.RequestedQuantity">
+            <summary>
+            Gets or sets the requested quantity.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.SpoolJobId">
+            <summary>
+            Gets or sets the spool job id.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.PrintException">
+            <summary>
+            Gets or sets the print exception if an error occurs during print.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintRequest.PrintProcessInitializer">
+            <summary>
+            Gets or sets the print process initializer.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintRequest.Cancel">
+            <summary>
+            Cancels the print request.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintRequest.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintRequest.Initialize(EuroPlus.NiceLabel.Interfaces.IPrintProcessInitializer,EuroPlus.NiceLabel.Interfaces.ISimplePrintRequest)">
+            <summary>
+            Initializes the specified engine print request.
+            </summary>
+            <param name="printProcessInitializer">The print process initializer.</param>
+            <param name="enginePrintRequest">The engine print request.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintRequest.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintRequest.GetSpoolJobStatus(EuroPlus.WindowsApi.JobStatus)">
+            <summary>
+            Gets the spool job status from flags.
+            </summary>
+            <param name="jobStatus">The job status.</param>
+            <remarks>Statuses have priorities. If job status contains error and printing flags, we return only error status.</remarks>
+            <returns>The spool job status.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.PrintSettings">
+            <summary>
+            Implementation of IPrinterSettings interface. The object contains parameters used to create the print job.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintSettings.#ctor(EuroPlus.NiceLabel.Interfaces.IFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.PrintSettings"/> class.
+            </summary>
+            <param name="format">The format.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.PrinterName">
+            <summary>
+            Gets or sets the name of the printer to be used for printing. If not explicitly set, the value returned is the printer saved with the label.
+            </summary>
+            <value>
+            The name of the printer.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.SkipLabels">
+            <summary>
+            Gets or sets the number of labels to be skipped on the first printing page.
+            </summary>
+            <value>
+            The number of skipped labels.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.IdenticalCopies">
+            <summary>
+            Gets or sets the number of identical label copies. When set to more than one (default value), each label in the print job is multiplied by the copy count.
+            For example, if the print job would include labels 1, 2 and 3, and the IdenticalCopies is set to 3, the resulting print job will include
+            labels 1, 1, 1, 2, 2, 2, 3, 3, 3.
+            </summary>
+            <value>
+            The number of identical copies.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.LabelSets">
+            <summary>
+            Gets or sets the number of label sets. When set to more than one, the complete print job is multiplied.
+            For example, if the print job would include labels 1, 2 and 3, and the LabelSets is set to 3, the resulting print job will include
+            labels 1, 2, 3, 1, 2, 3, 1, 2, 3.
+            </summary>
+            <value>
+            The number of label sets.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.OutputFileName">
+            <summary>
+            Gets or sets the name of the output file.
+            </summary>
+            <value>
+            The name of the output file.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.MonitorSpoolJobStatus">
+            <summary>
+            Gets or sets a value indicating whether spool job status is monitored in print request.
+            </summary>
+            <remarks>
+            If this setting is enabled, print request must be disposed after completion to avoid memory leaks.
+            </remarks>
+            <value>
+            <c>True</c> if spool job status is monitored; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.JobName">
+            <summary>
+            Gets or sets the name of the spooler job.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.PrintToPdf">
+            <summary>
+            Gets or sets a value indicating whether print output is saved to PDF document. PDF document path must be specified in <see cref="P:NiceLabel.SDK.PrintSettings.OutputFileName" /> property.
+            </summary>
+            <value>
+            <c>True</c> if print output must be saved to PDF document; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.AppendToOutputFile">
+            <summary>
+            Gets or sets a value indicating whether the print job is appended to the output file.
+            </summary>
+            <value>
+            <c>True</c> if print job needs to be appended to the output file; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.OffsetX">
+            <summary>
+            Gets or sets the offset X.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.OffsetY">
+            <summary>
+            Gets or sets the offset Y.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintSettings.DevModeBuffer">
+            <summary>
+            Gets or sets the dev mode.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintSettings.Reset">
+            <summary>
+            Resets the print parameters to their default values.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintSettings.SetParameter(System.String,System.String)">
+            <summary>
+            Allows you to set advanced print parameters before printing. Supported parameters are:
+            - PaperBin
+            - PrintDarkness
+            - PrintSpeed
+            - HorizontalOffset
+            - VerticalOffset
+            - PrintSettings (as base64 encoded printer DEVMODE).
+            </summary>
+            <param name="parameter">Advanced printer settings.</param>
+            <param name="value">Advanced settings value.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintSettings.GetRootPath">
+            <summary>
+            Gets the root path.
+            </summary>
+            <returns>The SDK root path.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.PrintToGraphicsResult">
+            <summary>
+            When <see cref="M:NiceLabel.SDK.ILabel.PrintToGraphics(NiceLabel.SDK.IPrintToGraphicsSettings)"/> is called, the return value is an instance of this class.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintToGraphicsResult.FrontSides">
+            <summary>
+            Gets or sets the front side results.
+            </summary>
+            <remarks>
+            Based on the print to graphics settings, result can be either a filename or the graphics itself. See <see cref="M:NiceLabel.SDK.ILabel.PrintToGraphics(NiceLabel.SDK.IPrintToGraphicsSettings)"/> for more information.
+            </remarks>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintToGraphicsResult.BackSides">
+            <summary>
+            Gets or sets the back side results.
+            </summary>
+            <remarks>
+            Based on the print to graphics settings, result can be either a filename or the graphics itself. See <see cref="M:NiceLabel.SDK.ILabel.PrintToGraphics(NiceLabel.SDK.IPrintToGraphicsSettings)"/> for more information.
+            </remarks>
+        </member>
+        <member name="T:NiceLabel.SDK.Field">
+            <summary>
+            Implements the IField interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Field.#ctor(EuroPlus.NiceLabel.Interfaces.ISolutionRuntime,EuroPlus.NiceLabel.Interfaces.IDBField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Field"/> class.
+            </summary>
+            <param name="solutionRuntime">The solution runtime.</param>
+            <param name="dataSource">The data source.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Field.FieldAlias">
+            <summary>
+            Gets the field alias.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Field.FieldName">
+            <summary>
+            Gets the name of the field.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Field.OverloadedValue">
+            <summary>
+            Gets the overloaded value of the database field. If field value has not been overloaded, the returned value will be empty.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Field.SetOverloadedValue(System.String)">
+            <summary>
+            Overloads the value of the field to the provided value.
+            </summary>
+            <param name="value">The overloaded value.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.Field.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Field.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.LabelObject">
+            <summary>
+            Implements the ILabelObject interface.
+            </summary>
+            <seealso cref="T:NiceLabel.SDK.ILabelObject" />
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.#ctor(NiceLabel.SDK.ILabel,EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.LabelObject" /> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="labelObject">The label object.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.Name">
+            <summary>
+            Gets the label object name.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.Position">
+            <summary>
+            Gets the position of the object.
+            </summary>
+            <value>
+            The position of the object's anchoring point in 1/100 of a millimeter.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.Size">
+            <summary>
+            Gets the size of the object.
+            </summary>
+            <value>
+            The size of the object. If the size is determined by other object's properties (for example Font, FontHeight and Content for text fields), returned value will be (0, 0).
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.Rotation">
+            <summary>
+            Gets or sets the object rotation. If the rotation is determined by other object's properties (for example starting and ending point for line), exception will be thrown if a value is assigned.
+            </summary>
+            <value>
+            The rotation in degrees.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.IsOnBackSide">
+            <summary>
+            Gets a value indicating whether this object is on back side of the label.
+            </summary>
+            <value>
+            <c>True</c> if this object is on back side; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.AnchoringPoint">
+            <summary>
+            Gets the anchoring point of the object.
+            </summary>
+            <value>
+            The anchoring point:
+            0 - LeftTop
+            1 - CenterTop
+            2 - RightTop
+            3 - LeftMiddle
+            4 - CenterMiddle
+            5 - RightMiddle
+            6 - LeftBottom
+            7 - CenterBottom
+            8 - RightBottom.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.Color">
+            <summary>
+            Gets or sets the color.
+            </summary>
+            <value>
+            The color of the label object.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.IsVisible">
+            <summary>
+            Gets or sets a value indicating whether the object is visible.
+            </summary>
+            <value>
+            <c>True</c> if the object is visible; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.LabelDocumentItem">
+            <summary>
+            Gets the label object.
+            </summary>
+            <value>
+            The label object.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObject.Label">
+            <summary>
+            Gets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.MoveTo(System.Int32,System.Int32)">
+            <summary>
+            Moves the label object to new position.
+            </summary>
+            <param name="x">The horizontal position of the object in 0.001mm units.</param>
+            <param name="y">The vertical position of the object in 0.001mm units.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.MoveBy(System.Int32,System.Int32)">
+            <summary>
+            Moves the label object by specified distance.
+            </summary>
+            <param name="dx">The horizontal distance from current position of the object in 0.001mm units.</param>
+            <param name="dy">The vertical distance from current position of the object in 0.001mm units.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.Resize(System.Int32,System.Int32)">
+            <summary>
+            Resizes the label object to the provided size. When the object size is specified by other attributes (like Font, FontHeight and Content for text object), exception will be thrown.
+            </summary>
+            <param name="width">The new width of the object.</param>
+            <param name="height">The new height of the object.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.GetBoundingRectangle">
+            <summary>
+            Gets the bounding rectangle of the object. This method requires rendering of the label and therefore more processing time.
+            </summary>
+            <returns>
+            The rectangle of the label object's boundaries (position and size) in 0.001mm units.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.GetDocumentItemRuntime(EuroPlus.NiceLabel.Interfaces.IDocumentItem)">
+            <summary>
+            Gets the document item runtime. If it does not exist yet, the format runtime is created and runtime is looked up again and returned.
+            </summary>
+            <param name="documentItem">The document item.</param>
+            <returns>The runtime of the label object.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.LabelObject.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.Variable">
+            <summary>
+            Implements the IVariable interface.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Variable.#ctor(EuroPlus.NiceLabel.Interfaces.ISolutionRuntime,EuroPlus.NiceLabel.Interfaces.IVariable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Variable"/> class.
+            </summary>
+            <param name="solutionRuntime">The solution runtime.</param>
+            <param name="dataSource">The data source.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.Name">
+            <summary>
+            Gets the variable name.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.Description">
+            <summary>
+            Gets the variable description.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.CurrentValue">
+            <summary>
+            Gets the current value of the variable. If variable's value has not been set yet, the returned value will be variable's default value.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.CurrentInputValue">
+            <summary>
+            Gets the current input value for the variable. If variable's value has not been set yet, the returned value will be variable's default input value.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IncrementType">
+            <summary>
+            Gets or sets the increment type of the variable. Possible values are:
+            0 - none
+            1 - Increment
+            2 - Decrement.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.PromptText">
+            <summary>
+            Gets the prompt text of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.PromptOrder">
+            <summary>
+            Gets the prompt order of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IncrementStep">
+            <summary>
+            Gets or sets the value of the increment step. When incrementing is defined, the value defines the difference between two increments.
+            </summary>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">The counter properties can not be assigned to a variable, because it is not a counter.</exception>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IncrementCount">
+            <summary>
+            Gets or sets the value of increment count. When incrementing is defined, the value defines after how many labels the value will be changed.
+            </summary>
+            <exception cref="T:NiceLabel.SDK.PrintEngineException">The counter properties can not be assigned to a variable, because it is not a counter.</exception>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.Format">
+            <summary>
+            Gets or sets the format of the variable. Possible values are:
+            0 - All
+            1 - Numeric
+            2 - Alphanumeric
+            3 - Letters
+            4 - Seven bit
+            5 - Hexadecimal
+            6 - Other
+            <para />
+            Only values 0 - 5 can be set to the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IsUsed">
+            <summary>
+            Gets a value indicating whether variable is used in the label.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.Length">
+            <summary>
+            Gets or sets the length of the variable. If the value is 0, the variable's length is not limited.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IsValueRequired">
+            <summary>
+            Gets a value indicating whether variable value is required.
+            </summary>
+            <value>
+            <c>True</c> if value is required for the variable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IsFixedLength">
+            <summary>
+            Gets a value indicating whether variable value must have fixed length.
+            </summary>
+            <value>
+            <c>True</c> if value must have fixed length; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IsPrompted">
+            <summary>
+            Gets a value indicating whether this variable is prompted. Prompted variable displays a message to the user and lets him enter a value before printing.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.DefaultValue">
+            <summary>
+            Gets or sets the default value of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.VariableType">
+            <summary>
+            Gets the type of the prompt variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IsPickListEnabled">
+            <summary>
+            Gets a value indicating whether variable has pick list enabled. If pick list is enabled than <see cref="P:NiceLabel.SDK.IVariable.PickListValues" /> holds a list of selectable input values for this variable. No other values can be used with this variable if a pick list is defined.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.PickListValues">
+            <summary>
+            Gets a list of selectable input values for this variable. No other values can be used with this variable if a pick list is defined.
+            </summary>
+            <value>
+            If <see cref="P:NiceLabel.SDK.IVariable.IsPickListEnabled" /> is <c>True</c> than the returned value is a list of selectable input values otherwise <c>null</c> is returned.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.MinimumValue">
+            <summary>
+            Gets or sets the minimum valid value of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.HasMinimumValue">
+            <summary>
+            Gets or sets a value indicating whether the variable is using minimum value.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.MaximumValue">
+            <summary>
+            Gets or sets the maximum valid value of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.HasMaximumValue">
+            <summary>
+            Gets or sets a value indicating whether the variable is using maximum value.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.HasRolloverOnMinimumMaximumValue">
+            <summary>
+            Gets or sets a value indicating whether the variable counter is rolling over using minimum and maximum value.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.Prefix">
+            <summary>
+            Gets or sets the prefix of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.Suffix">
+            <summary>
+            Gets or sets the suffix of the variable.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.IsDynamicValue">
+            <summary>
+            Gets a value indicating whether the dynamic value of this variable is enabled or not.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.InputFormat">
+            <summary>
+            Gets the value input format for date/time variables.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.Variable.OutputFormat">
+            <summary>
+            Gets the value output format for date/time variables.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Variable.SetValue(System.String)">
+            <summary>
+            Sets the new value to the variable.
+            </summary>
+            <param name="value">The new value.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.Variable.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Variable.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.FieldList">
+            <summary>
+            Implementation of the field list.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.FieldList.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:NiceLabel.SDK.IField"/> with the specified field alias.
+            </summary>
+            <value>
+            The <see cref="T:NiceLabel.SDK.IField"/>.
+            </value>
+            <param name="name">The field alias.</param>
+            <returns>The field with the specified field alias, or null if field is not found.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.LabelObjectList">
+            <summary>
+            Implementation of the variable list.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.LabelObjectList.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:NiceLabel.SDK.ILabelObject"/> with the specified name.
+            </summary>
+            <value>
+            The <see cref="T:NiceLabel.SDK.ILabelObject"/>.
+            </value>
+            <param name="name">The name.</param>
+            <returns>The label object with the specified name, or null if label object is not found.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.VariableList">
+            <summary>
+            Implementation of the variable list.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.VariableList.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:NiceLabel.SDK.IVariable"/> with the specified name.
+            </summary>
+            <value>
+            The <see cref="T:NiceLabel.SDK.IVariable"/>.
+            </value>
+            <param name="name">The name.</param>
+            <returns>The variable with the specified name, or null if variable is not found.</returns>
+        </member>
+        <member name="T:NiceLabel.SDK.Printer">
+            <summary>
+            Printer implementation.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Printer.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NiceLabel.SDK.Printer"/> class.
+            </summary>
+            <param name="name">The printer name.</param>
+        </member>
+        <member name="P:NiceLabel.SDK.Printer.Name">
+            <summary>
+            Gets the name of the printer.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.Printer.SendDataToPrinter(System.Byte[])">
+            <summary>
+            Sends the data to printer by creating a new print job and sending it to the spooler.
+            </summary>
+            <param name="data">The data for the print job.</param>
+        </member>
+        <member name="T:NiceLabel.SDK.PrintEngine">
+            <summary>
+            Main print engine class for accessing all SDK functionality. An instance of PrintEngine class can not be created by the caller. At all times, only one instance of this class will
+            exist in memory, and caller can access it through the <see cref="P:NiceLabel.SDK.PrintEngine.Instance"/> property.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:NiceLabel.SDK.PrintEngine"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.Instance">
+            <summary>
+            Gets the instance of the SDK. Always only a single instance of SDK class can be created, and reference to it can be obtained through the Instance static property.
+            </summary>
+            <value>
+            The instance of the SDK.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.Initialized">
+            <summary>
+            Gets a value indicating whether this <see cref="T:NiceLabel.SDK.PrintEngine"/> is initialized.
+            </summary>
+            <value>
+            <c>True</c> if initialized; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.OverrideFields">
+            <summary>
+            Gets or sets a value indicating whether or not to override all dataset fields to be of type string.
+            </summary>
+            <value>
+            <c>True</c> if override; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.ControlCenterProperties">
+            <summary>
+            Gets the control center properties. 
+            </summary>
+            <value>
+            The control center properties.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.AuthenticationSettings">
+            <summary>
+            Gets the authentication settings.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.PrintServiceSettings">
+            <summary>
+            Gets the print service settings.
+            </summary>
+            <value>
+            The print service settings.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.TraceFile">
+            <summary>
+            Gets or sets the trace file. If tracing is required, the property needs to be set prior to calling Initialize method.
+            </summary>
+            <value>
+            The trace file. When set, SDK activities will be traced to the file.
+            </value>
+            <remarks>
+            If a file SDK.NET.trace is found next to the SDK.NET.dll assembly, trace is enabled and that file is set as TraceFile property.
+            </remarks> 
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.Printers">
+            <summary>
+            Gets the list of all printers.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.LocalSdkFolder">
+            <summary>
+            Gets the local SDK folder.
+            </summary>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.IsPartOfPowerFormsSuite">
+            <summary>
+            Gets a value indicating whether SDK is part of Power Forms Suite.
+            </summary>
+            <value>
+            <c>True</c> if SDK is part of Power Forms Suite; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.IsPartOfControlCenter">
+            <summary>
+            Gets a value indicating whether SDK is part of Control Center.
+            </summary>
+            <value>
+            <c>True</c> if SDK is part of Control Center; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.IsCloudPrintingService">
+            <summary>
+            Gets a value indicating whether SDK is used in cloud printing service.
+            </summary>
+            <value>
+              <c>True</c> if SDK is used in cloud printing service; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.IsPartOfLabelConverter">
+            <summary>
+            Gets a value indicating whether SDK is part of Label Converter.
+            </summary>
+            <value>
+            <c>True</c> if SDK is part of Label Converter; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NiceLabel.SDK.PrintEngine.ExternalFileServiceSettings">
+            <summary>
+            Gets the external file service settings.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.Initialize">
+            <summary>
+            Initializes the instance of the <see cref="T:NiceLabel.SDK.PrintEngine" /> class.
+            </summary>
+            <remarks>
+            Before any other call, the application needs to call <see cref="M:NiceLabel.SDK.PrintEngine.Initialize"/> method of the PrintEngine.
+            </remarks>    
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.Shutdown">
+            <summary>
+            Shutdowns this instance of the <see cref="T:NiceLabel.SDK.PrintEngine" /> class.
+            </summary>
+            <remarks>
+            When application is closing, it needs to call the Shutdown method. This method will make sure to complete all unfinished tasks and free all the resources.
+            </remarks>    
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OpenLabel(System.IO.Stream,System.String)">
+            <summary>
+            Opens the label from a stream and returns the interface to access the object.
+            </summary>
+            <param name="labelStream">Stream of the label file.</param>
+            <param name="relativeItemsPath">Used by the engine when items (picture, text database, etc.) are located on one of the relative predefined paths.</param>
+            <returns>
+            Interface to the label.
+            </returns>
+            <remarks>
+            If the label can not be opened or an error occurs while opening, an exception will be thrown.
+            </remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OpenLabel(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Opens the label from a stream and returns the interface to access the object.
+            </summary>
+            <param name="labelStream">Stream of the label file.</param>
+            <param name="relativeItemsPath">Used by the engine when items (picture, text database, etc.) are located on one of the relative predefined paths.</param>
+            <param name="revision">The label file revision.</param>
+            <returns>
+            Interface to the label.
+            </returns>
+            <remarks>
+            If the label can not be opened or an error occurs while opening, an exception will be thrown.
+            </remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OpenLabel(System.String)">
+            <summary>
+            Opens the label from the file and returns the interface to access the object.
+            </summary>
+            <param name="labelFileName">Path to the label file.</param>
+            <returns>Interface to the label.</returns>
+            <remarks>If the label can not be opened or an error occurs while opening, an exception will be thrown.</remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OpenSolution(System.IO.Stream,System.String)">
+            <summary>
+            Opens the solution from a stream and returns the interface to access the object.
+            </summary>
+            <param name="solutionStream">Stream of the solution file.</param>
+            <param name="relativeItemsPath">The engine will use the provided path to locate the external items referenced in a solution (pictures, text databases, etc.) The path can be absolute or relative. When using relative path, the start folder is the folder with solution file. Always include the trailing backslash character (when using drives) or trailing forward slash (when using http location in the Document Storage).</param>
+            <returns>
+            Interface to the solution.
+            </returns>
+            <remarks>
+            If the solution can not be opened or an error occurs while opening, an exception will be thrown.
+            </remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OpenSolution(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Opens the solution from a stream and returns the interface to access the object.
+            </summary>
+            <param name="solutionStream">Stream of the solution file.</param>
+            <param name="relativeItemsPath">The engine will use the provided path to locate the external items referenced in a solution (pictures, text databases, etc.) The path can be absolute or relative. When using relative path, the start folder is the folder with solution file. Always include the trailing backslash character (when using drives) or trailing forward slash (when using http location in the Document Storage).</param>
+            <param name="revision">The solution file revision.</param>
+            <returns>
+            Interface to the solution.
+            </returns>
+            <remarks>
+            If the solution can not be opened or an error occurs while opening, an exception will be thrown.
+            </remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OpenSolution(System.String)">
+            <summary>
+            Opens the solution from the file and returns the interface to access the object.
+            </summary>
+            <param name="solutionFileName">Path to the solution file.</param>
+            <returns>Interface to the label.</returns>
+            <remarks>If the solution can not be opened or an error occurs while opening, an exception will be thrown.</remarks>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.GetDocumentStorage">
+            <summary>
+            Method returns an instance of DocumentStorage class, which can be used to communicate with DocumentStorage.
+            </summary>
+            <returns>A new instance of object implementing IDocumentStorage interface.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.GetSetting(System.String)">
+            <summary>
+            Gets the setting. For SDK internal use only.
+            </summary>
+            <param name="key">The setting key.</param>
+            <returns>
+            The setting value.
+            </returns>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.SetSetting(System.String,System.Object)">
+            <summary>
+            Sets the setting value. For SDK internal use only.
+            </summary>
+            <param name="key">The setting key.</param>
+            <param name="value">The setting value.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.UpdateDocumentStorageControlCenterUrl(System.String)">
+            <summary>
+            Updates the document storage control center URL. When ControlCenterProperties are updated, the print engine takes care to update Url wherever required.
+            </summary>
+            <param name="controlCenterUrl">The control center URL.</param>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.CheckLicense">
+            <summary>
+            Checks the license.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.CheckInitialized">
+            <summary>
+            Checks and throws an exception if SDK is not initialized yet.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.GetLocalSdkFolder">
+            <summary>
+            Gets the local SDK folder.
+            </summary>
+            <returns>The path to the SDK folder.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.OemServiceInitialize">
+            <summary>
+            Initializes the oem service.
+            </summary>
+        </member>
+        <member name="M:NiceLabel.SDK.PrintEngine.CurrentDomain_AssemblyResolve(System.Object,System.ResolveEventArgs)">
+            <summary>
+            Handles the AssemblyResolve event of the CurrentDomain control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="args">The <see cref="T:System.ResolveEventArgs"/> instance containing the event data.</param>
+            <remarks>
+            Assemblies in x86 and x64 folders do not get loaded without this.
+            </remarks>
+            <returns>Loaded assembly.</returns>
+        </member>
+        <member name="M:NiceLabel.SDK.SoftwareExpiration.CheckIfSoftwareExpired">
+            <summary>
+            Checks if the software has expired.
+            </summary>
+            <exception cref="T:NiceLabel.SDK.SDKException">Exception is thrown if software is expired.</exception>
+        </member>
+    </members>
+</doc>
